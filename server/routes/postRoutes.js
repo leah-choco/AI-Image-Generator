@@ -16,7 +16,15 @@ cloudinary.config({
 });
 
 //This route GETs all posts
-router.route("/").get(async (req, res) => {});
+router.route("/").get(async (req, res) => {
+  try {
+    const posts = await Post.find({});
+
+    res.status(200).json({ success: true, data: posts });
+  } catch (error) {
+    res.status(500).json({ success: false, message: error });
+  }
+});
 
 //This route CREATES a post
 router.route("/").post(async (req, res) => {
