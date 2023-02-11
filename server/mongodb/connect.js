@@ -4,7 +4,7 @@ const connectDB = (url) => {
   mongoose.set("strictQuery", true);
 
   mongoose
-    .connect(process.env.MONGODB_URI || "http://localhost:8080", {
+    .connect(process.env.MONGODB_URL || "http://localhost:8080", {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
