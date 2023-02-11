@@ -22,6 +22,10 @@ app.get("/", async (req, res) => {
   res.send("Hello from DALL-E");
 });
 
+app.get("/*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../client/dist/index.html"));
+});
+
 const startServer = async () => {
   try {
     connectDB(process.env.MONGODB_URL);
